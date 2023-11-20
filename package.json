@@ -1,0 +1,32 @@
+{
+  "dependencies": {
+    "progress": "^2.0.3",
+    "puppeteer": "^21.5.2"
+  },
+  "name": "ftp-quick-deploy",
+  "version": "1.0.2",
+  "description": "Deploy build folder (React or other) to the server with a quick command from you'r console",
+  "main": "deploy.js",
+  "directories": {
+    "test": "test"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/youngstart777/ftp-quick-deploy.git"
+  },
+  "keywords": [
+    "deploy",
+    "ftp",
+    "react"
+  ],
+  "author": "Urisa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/youngstart777/ftp-quick-deploy/issues"
+  },
+  "homepage": "https://github.com/youngstart777/ftp-quick-deploy#readme"
+}
