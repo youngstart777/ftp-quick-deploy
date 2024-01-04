@@ -4,6 +4,7 @@ const fs = require('fs');
 const path = require('path');
 const puppeteer = require('puppeteer');
 const progress_bar = require('progress');
+const notifier = require('node-notifier');
 
 
 const deploy = (options) => {
@@ -77,11 +78,12 @@ const deploy = (options) => {
 
         // Close the browser
         await browser.close();
+        console.log("\n Cache refreshed successfully!! \n");
     }
 
-    function refreshCatchSiteground(sg_site_id) {
+    async function refreshCatchSiteground(sg_site_id) {
 
-        run(`https://tools.siteground.com/cacher?siteId=${sg_site_id}`, [
+        return run(`https://tools.siteground.com/cacher?siteId=${sg_site_id}`, [
             {
                 selector: `input[data-e2e="input-username"]`,
                 action_type: "type",
@@ -157,12 +159,23 @@ const deploy = (options) => {
             if (!options.sg_username || !options.sg_pass) {
                 console.log("\nMissing Siteground Cred\n");
             } else {
-                refreshCatchSiteground(options.sg_site_id);
-                console.log("\nCatch refreshed Successfully!\n");
+                refreshCatchSiteground(options.sg_site_id)
+                .then((x) => {
+                    notifier.notify(
+                        {
+                          title: 'FTP Upload Complete!!',
+                          message: 'Uploaded files and folders!!',
+                          icon: path.join(__dirname, 'ftp_icon.jpg'),
+                          sound: true,
+                          wait: true
+                        }
+                      );
+                      
+                });
             }
         }
     })
-    console.log("\nDone!\n");
 }
+
 
 module.exports = deploy;
