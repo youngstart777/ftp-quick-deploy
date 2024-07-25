@@ -112,7 +112,7 @@ const deploy = (options) => {
                 wait: 500,
             },
             {
-                selector: `span[data-e2e='table-action-flush-cache']`,
+                selector: `*[data-e2e='table-action-flush-cache']`,
                 action_type: "click",
                 wait: 2500,
             },
