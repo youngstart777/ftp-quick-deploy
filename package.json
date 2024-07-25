@@ -5,7 +5,7 @@
     "puppeteer": "^21.5.2"
   },
   "name": "ftp-quick-deploy",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Deploy build folder (React or other) to the server with a quick command from you'r console",
   "main": "deploy.js",
   "directories": {
